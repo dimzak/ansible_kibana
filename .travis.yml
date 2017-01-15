@@ -29,6 +29,7 @@ script:
   - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
 
   # Kibana check
+  - sleep 15
   - curl http://localhost:5601
 
 notifications:
