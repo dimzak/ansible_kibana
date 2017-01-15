@@ -1,2 +1,10 @@
 ---
 # defaults file for ansible_kibana
+kibana_version: "5.1.2"
+kibana_platform_architecture: "amd64"
+kibana_install_url: "https://artifacts.elastic.co/downloads/kibana"
+kibana_elasticsearch_url: "http://localhost:9200"
+apt_cache_valid_time: 600
+kibana_group: root
+kibana_user: root
+

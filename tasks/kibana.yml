@@ -1,0 +1,11 @@
+---
+
+- name: Download and install Kibana archive
+  apt:
+    deb: '{{ kibana_install_url }}/kibana-{{ kibana_version }}-{{ kibana_platform_architecture }}.deb'
+  sudo: yes
+
+- name: Update Kibana configuration file
+  template: src=kibana.yml.j2 dest=/etc/kibana/kibana.yml owner="{{ kibana_user }}" group="{{ kibana_group }}" mode=0644
+  notify: restart kibana
+
