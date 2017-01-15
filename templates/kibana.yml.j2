@@ -39,6 +39,9 @@ elasticsearch.url: {{ kibana_elasticsearch_url }}
 # setting. When the value of this setting is false, Kibana uses the hostname of the host
 # that connects to this Kibana instance.
 #elasticsearch.preserveHost: true
+{% if kibana_elasticsearch_preserveHost is defined %}
+elasticsearch.preserveHost: {{ kibana_elasticsearch_preserveHost }}
+{% endif %}
 
 # Kibana uses an index in Elasticsearch to store saved searches, visualizations and
 # dashboards. Kibana creates a new index if the index doesn't already exist.
@@ -81,31 +84,31 @@ elasticsearch.username: {{ kibana_elasticsearch_username }}
 # These files validate that your Elasticsearch backend uses the same key files.
 #elasticsearch.ssl.cert: /path/to/your/client.crt
 #elasticsearch.ssl.key: /path/to/your/client.key
-{% if kibana_elasticsearch_username is defined %}
-elasticsearch.username: {{ kibana_elasticsearch_username }}
+{% if kibana_elasticsearch_ssl_cert is defined %}
+elasticsearch.ssl.cert: {{ kibana_elasticsearch_ssl_cert }}
 {% endif %}
-{% if kibana_elasticsearch_username is defined %}
-elasticsearch.username: {{ kibana_elasticsearch_username }}
+{% if kibana_elasticsearch_ssl_key is defined %}
+elasticsearch.ssl.key: {{ kibana_elasticsearch_ssl_key }}
 {% endif %}
 
 # Optional setting that enables you to specify a path to the PEM file for the certificate
 # authority for your Elasticsearch instance.
 #elasticsearch.ssl.ca: /path/to/your/CA.pem
-{% if kibana_elasticsearch_username is defined %}
-elasticsearch.username: {{ kibana_elasticsearch_username }}
+{% if kibana_elasticsearch_ssl_ca is defined %}
+elasticsearch.ssl.ca: {{ kibana_elasticsearch_ssl_ca }}
 {% endif %}
 
 # To disregard the validity of SSL certificates, change this setting's value to false.
 #elasticsearch.ssl.verify: true
-{% if kibana_elasticsearch_username is defined %}
-elasticsearch.username: {{ kibana_elasticsearch_username }}
+{% if kibana_elasticsearch_ssl_verify is defined %}
+elasticsearch.ssl.verify: {{ kibana_elasticsearch_ssl_verify }}
 {% endif %}
 
 # Time in milliseconds to wait for Elasticsearch to respond to pings. Defaults to the value of
 # the elasticsearch.requestTimeout setting.
 #elasticsearch.pingTimeout: 1500
-{% if kibana_elasticsearch_username is defined %}
-elasticsearch.username: {{ kibana_elasticsearch_username }}
+{% if kibana_elasticsearch_pingTimeout is defined %}
+elasticsearch.pingTimeout: {{ kibana_elasticsearch_pingTimeout }}
 {% endif %}
 
 # Time in milliseconds to wait for responses from the back end or Elasticsearch. This value
