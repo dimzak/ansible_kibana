@@ -1,6 +1,6 @@
 galaxy_info:
   author: Dimitrios Zakas
-  description: Kibana 5.x for Ubuntu
+  description: Kibana 5.x role
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
